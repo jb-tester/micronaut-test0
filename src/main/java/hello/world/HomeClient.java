@@ -15,6 +15,6 @@ public interface HomeClient {
 
     @Get("/world")
     Single<String> foo();
-    @Get("/guest/${myprops.bar-prop}")
+    @Get("/guest/${myprops.bar-prop:`barr`}")
     Single<String> bar();
 }
