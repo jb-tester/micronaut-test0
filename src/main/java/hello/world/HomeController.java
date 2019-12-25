@@ -1,9 +1,6 @@
 package hello.world;
 
-import hello.world.beansToInject.Foo;
-import hello.world.beansToInject.Greeting;
-import hello.world.beansToInject.MyDecorator;
-import hello.world.beansToInject.Punctuation;
+import hello.world.beansToInject.*;
 import hello.world.confProperties.MyProperties;
 import hello.world.confProperties.MyPropertiesExtended;
 import hello.world.qualifiers.SymbolQualifier;
@@ -38,7 +35,7 @@ public class HomeController {
             //   as non-secondary ones
             MyDecorator decorator;
 
-    @Inject @Named("hello")     // todo: no completion for bean names; no navigation to single matching bean
+    @Inject @Named("${myprops.ext.boo}") // todo: no completion for bean names; no navigation to single matching bean
             Greeting greeting;
 
     @Inject @SymbolQualifier // todo: qualified bean is not used as single candidate on navigation
