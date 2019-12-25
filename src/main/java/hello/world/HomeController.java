@@ -31,6 +31,9 @@ public class HomeController {
     @Inject
     Provider<Foo> fooProvider;
 
+    @Inject
+    CustomScopedBean customScopedBean;
+
     @Inject  // todo: primary bean is not used as a single candidate on navigation; secondary-annotated ones are used
             //   as non-secondary ones
             MyDecorator decorator;
