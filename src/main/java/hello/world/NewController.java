@@ -3,6 +3,9 @@ package hello.world;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
+import io.micronaut.http.annotation.QueryValue;
+
+import javax.annotation.Nullable;
 
 @Controller("/new")
 public class NewController {
@@ -18,4 +21,14 @@ public class NewController {
 
         return "method2 "+pvar2+" "+pvar3;
     }
+    @Get(value = "/method3{/pvar4}")
+    public String method3(@Nullable @PathVariable("pvar4") String pvar4){
+        return "method3 "+pvar4;
+    }
+    @Get(value = "/method4/{pvar5}{?p1,p2}")
+    public String method4(@PathVariable("pvar5") String pv5, @Nullable @QueryValue String p1,
+                          @Nullable @QueryValue("p2") String param2){
+        return "method4 "+pv5+" "+p1+" "+param2;
+    }
+
 }
