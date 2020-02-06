@@ -30,13 +30,13 @@ public class NewControllerTest {
     void testMethod1Response() {
         String response = client.toBlocking()
                 .retrieve(HttpRequest.GET("/new/method1/boo"));
-        assertEquals("method1 boo", response); //)
+        assertEquals("method1 boo", response);
     }
     @Test
     void testMethod2Response() {
         String response = client.toBlocking()
                 .retrieve(HttpRequest.GET("/new/method2/foo/bar9"));
-        assertEquals("method2 foo bar9", response); //)
+        assertEquals("method2 foo bar9", response);
     }
     @Test
     void testMethod3Response() {
@@ -51,6 +51,6 @@ public class NewControllerTest {
     void testMethod4Response() {
         String response = client.toBlocking()
                 .retrieve(HttpRequest.GET("/new/method4/boo?p1=foo&p2=bar"));
-        assertEquals("method4 boo foo bar", response); //)
+        assertEquals("method4 boo foo bar", response);
     }
 }
