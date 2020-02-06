@@ -3,6 +3,7 @@ package hello.world;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
+import io.micronaut.http.client.exceptions.HttpClientResponseException;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
@@ -44,8 +45,14 @@ public class NewControllerTest {
                 .retrieve(HttpRequest.GET("/new/method3/foo"));
         String response2 = client.toBlocking()
                 .retrieve(HttpRequest.GET("/new/method3/"));
-        assertEquals("method3 foo", response); //)
-        assertEquals("method3 null", response2); //)
+        assertEquals("method3 foo", response);
+        assertEquals("method3 null", response2);
+        try {
+            String response3 = client.toBlocking()
+                    .retrieve(HttpRequest.GET("/new/method3/foofoo"));
+        } catch (HttpClientResponseException e) {
+            System.out.println("this part should fail");;
+        }
     }
     @Test
     void testMethod4Response() {

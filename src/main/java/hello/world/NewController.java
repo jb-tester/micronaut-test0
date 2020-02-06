@@ -21,7 +21,7 @@ public class NewController {
 
         return "method2 "+pvar2+" "+pvar3;
     }
-    @Get(value = "/method3{/pvar4}")
+    @Get(value = "/method3{/pvar4:3}")
     public String method3(@Nullable @PathVariable("pvar4") String pvar4){
         return "method3 "+pvar4;
     }
