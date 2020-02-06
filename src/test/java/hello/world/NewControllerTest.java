@@ -58,6 +58,8 @@ public class NewControllerTest {
     void testMethod4Response() {
         String response = client.toBlocking()
                 .retrieve(HttpRequest.GET("/new/method4/boo?p1=foo&p2=bar"));
-        assertEquals("method4 boo foo bar", response);
+        String response2 = client.toBlocking()
+                .retrieve(HttpRequest.GET("/new/method4/boo/zoo?p1=foo&p2=bar"));
+        assertEquals("method4 boo/zoo foo bar", response2);
     }
 }
