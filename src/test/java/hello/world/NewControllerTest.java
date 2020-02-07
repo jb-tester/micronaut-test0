@@ -30,8 +30,8 @@ public class NewControllerTest {
     @Test
     void testMethod1Response() {
         String response = client.toBlocking()
-                .retrieve(HttpRequest.GET("/new/method1/boo"));
-        assertEquals("method1 boo", response);
+                .retrieve(HttpRequest.GET("/new/method1/foo7"));
+        assertEquals("method1 foo7", response);
     }
     @Test
     void testMethod2Response() {

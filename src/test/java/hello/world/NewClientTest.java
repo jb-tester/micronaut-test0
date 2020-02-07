@@ -20,7 +20,7 @@ class NewClientTest {
 
     @Test
     void testMethod1Client() {
-        assertEquals("method1 boo", client.method1("boo").blockingGet());
+        assertEquals("method1 bar9", client.method1("bar9").blockingGet());
     }
     @Test
     void testMethod2Client() {
