@@ -1,5 +1,6 @@
 package hello.world;
 
+import hello.world.utils.MyData;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
@@ -31,4 +32,14 @@ public class NewController {
         return "method4 "+pv5+" "+p1+" "+param2;
     }
 
+    @Get(value = "/method5/{pvar6}{?mydata*}")
+    public String method5(@PathVariable("pvar6") String pvar6, @Nullable MyData mydata){
+        return "method5 "+mydata.toString();
+    }
+
+    @Get(value = "/method6/test{pvar6:[0-9]}{pvar7:[a-z]}test")
+    public String method6(@PathVariable("pvar7") String opv, @PathVariable("pvar6") int pv){
+
+        return "method6 test"+pv+opv;
+    }
 }

@@ -62,4 +62,20 @@ public class NewControllerTest {
                 .retrieve(HttpRequest.GET("/new/method4/boo/zoo?p1=foo&p2=bar"));
         assertEquals("method4 boo/zoo foo bar", response2);
     }
+
+    @Test
+    void testMethod5Response() {
+        String response = client.toBlocking()
+                .retrieve(HttpRequest.GET("/new/method5/test?p1=foo&p2=bar"));
+
+        assertEquals("method5 MyData: foo bar null", response);
+    }
+    @Test
+    void testMethod6Response() {
+        String response = client.toBlocking()
+                .retrieve(HttpRequest.GET("/new/method6/test7atest"));
+
+        assertEquals("method6 test7a", response);
+    }
+
 }
